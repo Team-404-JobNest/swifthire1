@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Role | SwiftHire Buea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <header>
+  <nav class="navbar">
+    <div class="logo">SWIFT<span>HIRE</span></div>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <div class="nav-container" id="nav-drawer">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Job Listings</a></li>
+        <li><a href="post-job.html">Post a Job</a></li>
+    </ul>
+    
+    <div class="drawer-footer">
+        <a href="post-job.html" class="main-nav-button">Post a Job Now</a>
+    </div>
+</div>
+
+  </nav>
+</header>
+    <main class="form-container">
+        <div class="form-box">
+            <h2>Find your next team member.</h2>
+            <p>Tell us what you're looking for. We specialize in connecting Buea businesses with fresh, hungry talent ready to work.</p>
+            
+            <form id="postJobForm">
+                <div class="input-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" placeholder="e.g. Silicon Mountain Tech" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="e.g. Junior Designer" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="jobLocation">Location in Buea</label>
+                    <input type="text" id="jobLocation" placeholder="e.g. Molyko, Mile 17" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="jobDescription">Role Description</label>
+                    <textarea id="jobDescription" rows="5" placeholder="What will they be doing? (Keep it friendly!)" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-apply">Post Opportunity</button>
+            </form>
+
+           <div id="postSuccessMessage" class="hidden">
+    <div class="success-icon">🚀</div>
+    <h3>Mission Accomplished!</h3>
+    <p>Your job posting has been sent to our team for review. We’ll have it live for the Buea community shortly.</p>
+    <a href="listings.html" class="btn-view">View All Jobs</a>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SwiftHire - Supporting Career Growth in Buea</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

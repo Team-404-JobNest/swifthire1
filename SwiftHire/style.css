@@ -1,0 +1,809 @@
+/* 1. BRAND COLORS & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root {
+    --primary-blue: #004e92;
+    --luxury-dark: #000428;
+    --accent-blue: #0072ff;
+    --white: #ffffff;
+    --bg-light: #f8fafd; /* Very light blue tint for background blocks */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Metropolis Style */
+}
+
+body {
+    background-color: var(--white);
+    color: var(--luxury-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. NAVIGATION - NOW BRANDED BLUE */
+header {
+    background: linear-gradient(to right, var(--luxury-dark), var(--primary-blue));
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.logo span { font-weight: 300; opacity: 0.7; }
+
+
+
+@media screen and (max-width: 480px) {
+
+/* Hamburger Toggle */
+
+.menu-toggle {
+    display: flex; 
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 2100;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    
+    transition: 0.4s;
+}
+
+/* THE "X" ANIMATION */
+/* --- THE "X" ANIMATION COLORS --- */
+.menu-toggle.is-active .bar:nth-child(1) { 
+    transform: translateY(8px) rotate(45deg); 
+    background-color: var(--accent-blue); /* Branded Blue X */
+}
+.menu-toggle.is-active .bar:nth-child(2) { 
+    opacity: 0; 
+}
+.menu-toggle.is-active .bar:nth-child(3) { 
+    transform: translateY(-8px) rotate(-45deg); 
+    background-color: var(--accent-blue); /* Branded Blue X */
+}
+
+/* --- THE DRAWER BUTTON --- */
+.drawer-footer {
+    padding: 15px 40px;
+    margin-top: auto; /* Pushes to bottom */
+    width: 100%;
+}
+
+.main-nav-button {
+    /* Critical: This turns it into a solid rectangle */
+    display: block !important; 
+    width: 100%;
+    
+    /* Brand Colors */
+    background-color: #004e92 !important; /* Your SwiftHire Blue */
+    color: #ffffff !important;
+    
+    /* Shape & Size */
+    padding: 18px 0;
+    text-align: center;
+    border-radius: 8px; /* Sharp but slightly rounded rectangle */
+    
+    /* Typography */
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    
+    /* Animation */
+    transition: background 0.3s ease;
+}
+
+.main-nav-button:hover {
+    background-color: #000428; /* Darker blue on hover */
+}
+
+
+/* Nav Drawer */
+.nav-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--white);
+    padding: 100px 40px;
+    transition: 0.4s cubic-bezier(0.8, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-container.active { right: 0; }
+
+.nav-links { list-style: none; }
+.nav-links li { margin-bottom: 25px; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--luxury-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+}
+
+
+
+/* 3. HERO BLOCK */
+.hero-section {
+    background: linear-gradient(135deg, var(--luxury-dark) 0%, var(--primary-blue) 100%);
+    padding: 100px 5% 60px;
+    color: var(--white);
+    text-align: center;
+}
+
+.premium-headline {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* 4. CONTENT BLOCKS (Organized Design) */
+section {
+    padding: 80px 10%;
+}
+
+/* Mission Block */
+.mission-statement {
+    background-color: var(--bg-light);
+    border-radius: 20px;
+    margin: 40px 5%;
+    text-align: center;
+}
+
+.mission-statement h2 { margin-bottom: 20px; font-weight: 800; }
+
+/* How it Works Grid */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.step-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--primary-blue); /* Branded accent */
+}
+
+.step-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    opacity: 0.1;
+    margin-bottom: -20px;
+}
+
+/* Final CTA Block */
+.final-cta {
+    background: var(--luxury-dark);
+    color: var(--white);
+    border-radius: 30px;
+    margin: 60px 5%;
+    text-align: center;
+}
+
+/* 5. BUTTONS (Standardized) */
+.btn-premium {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-dark { background: var(--white); color: var(--primary-blue); }
+.btn-outline { border: 2px solid var(--white); color: var(--white); margin-top: 15px; }
+
+@media (min-width: 768px) {
+    .btn-outline { margin-top: 0; margin-left: 15px; }
+}
+
+/* 6. --- FOOTER STYLING (NEW) --- */
+footer {
+    background-color: var(--luxury-dark);
+    color: var(--white);
+    padding: 60px 5% 30px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+/* Optional: Add social or footer links styling if you add them later */
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-blue);
+}
+
+
+/* ==========================================
+   7. DESKTOP VIEW (481px and Up)
+   ========================================== */
+@media screen and (min-width: 481px) {
+
+    /* Hide the hamburger/toggle icon */
+    .menu-toggle {
+        display: none !important;
+    }
+
+    /* Convert the drawer back into a horizontal navbar */
+    .nav-container {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        display: flex;
+        align-items: center;
+        visibility: visible;
+        opacity: 1;
+        right: auto;
+    }
+
+    /* 1. FIX THE DOTS: Remove list bullets */
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        list-style: none; /* This removes the dots */
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-bottom: 0;
+        margin-left: 25px; /* Spacing between links */
+    }
+
+    /* 2. FIX THE UNDERLINES: Clean typography */
+    .nav-links a {
+        text-decoration: none; /* This removes the underline */
+        color: var(--white);
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        opacity: 0.8;
+    }
+
+    /* 3. PROFESSIONAL BUTTON ADJUSTMENT */
+    .drawer-footer {
+        margin-top: 0;
+        margin-left: 25px;
+        padding: 0;
+        width: auto;
+    }
+
+    .main-nav-button {
+        display: inline-block;
+        width: auto;
+        padding: 10px 20px;
+        background-color: var(--white) !important;
+        color: var(--primary-blue) !important;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-decoration: none; /* Removes underline from button text */
+        transition: transform 0.2s ease;
+    }
+
+    .main-nav-button:hover {
+        transform: translateY(-2px);
+        background-color: #f0f4f8 !important;
+    }
+}
+
+
+
+/* ==========================================
+   PRECISE SIDEBAR-ACCENT JOB CARDS
+   ========================================== */
+
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    padding: 40px 10%;
+    background-color: #fcfcfc; /* Very light neutral background */
+}
+
+.job-card {
+    background: var(--white);
+    padding: 30px 35px;
+    border-radius: 15px; /* Softer, high-end curves */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03); /* Subtle luxury shadow */
+    
+    /* MOVE BLUE OUTLINE TO THE LEFT */
+    border-left: 6px solid var(--primary-blue); 
+    border-bottom: none; /* Removing the previous bottom border */
+    
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.job-card:hover {
+    transform: translateX(10px); /* Slides slightly right on hover */
+}
+
+.job-card h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-blue); /* Title matches the brand blue */
+    margin-bottom: 10px;
+}
+
+.company {
+    color: var(--luxury-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.location {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* CLEAN TEXT LINK (Replaces the Button) */
+.btn-view {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--primary-blue); /* Underline style link */
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    color: var(--luxury-dark);
+    border-bottom-color: var(--luxury-dark);
+}
+
+/* Mobile adjustments to keep it tight */
+@media screen and (max-width: 480px) {
+    .job-grid {
+        padding: 20px 5%;
+    }
+    .job-card {
+        padding: 25px;
+    }
+}
+/* ==========================================
+   CENTRALIZED LISTING HEADER
+   ========================================== */
+
+/* Target the container wrapping your H1 and P */
+.listing-header {
+    text-align: center;
+    padding: 60px 5% 20px 5%; /* Spacing around the header area */
+    background-color: #fcfcfc; /* Matching the clean background */
+}
+
+.listing-header h1 {
+    font-size: 2.8rem; /* Large, bold as seen in sample */
+    font-weight: 800;
+    color: var(--luxury-dark);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.listing-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px; /* Limits width so it centers nicely */
+    margin: 0 auto;   /* This is what actually centers the block */
+    line-height: 1.6;
+}
+
+/* Mobile Tweaks */
+@media screen and (max-width: 480px) {
+    .listing-header h1 {
+        font-size: 2rem;
+    }
+    .listing-header p {
+        font-size: 1rem;
+    }
+}
+
+
+/* ==========================================
+   9.DETAILS PAGE
+   ========================================== */
+
+.details-container {
+    padding: 60px 5%;
+    background-color: #fcfcfc;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.details-box {
+    background: var(--white);
+    width: 100%;
+    max-width: 800px; /* Keeps the reading lines comfortable */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.03);
+    justify-content: center;
+
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    transform: translateX(-1px);
+    color: var(--luxury-dark);
+}
+
+/* Job Header Section */
+.job-header-main h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--luxury-dark);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.company-tag {
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Content Sections */
+.job-description h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--luxury-dark);
+    margin: 30px 0 15px;
+}
+
+.job-description p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.job-description ul {
+    margin-left: 20px;
+    margin-bottom: 25px;
+}
+
+.job-description li {
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+/* Apply Section */
+.apply-section {
+    
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.btn-apply {
+   
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-decoration: none;
+    padding: 18px 45px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 78, 146, 0.2);
+}
+
+.btn-apply:hover {
+    background-color: var(--luxury-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media screen and (max-width: 768px) {
+    .details-box {
+        padding: 40px 30px;
+    }
+    
+    .job-header-main h1 {
+        font-size: 2rem;
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    .details-container {
+        padding: 30px 5%;
+    }
+    
+    .details-box {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .btn-apply {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   10.  APPLICATION FORM
+   ========================================== */
+
+.form-container {
+    padding: 60px 5%;
+    background-color: #fcfcfc;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-box {
+    background: var(--white);
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+    border-top: 6px solid var(--primary-blue); /* Branded top accent */
+}
+
+.form-box h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--luxury-dark);
+    margin-bottom: 10px;
+}
+
+.form-box p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Input Grouping */
+.input-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--luxury-dark);
+    margin-bottom: 8px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-blue);
+}
+
+/* Phone Input Row */
+.phone-input {
+    display: flex;
+    gap: 10px;
+}
+
+#countryCode {
+    width: 130px;
+    background-color: #f9f9f9;
+}
+
+/* File Upload Styling */
+input[type="file"] {
+    padding: 10px;
+    background: #f4f7fa;
+    border: 2px dashed #ccd6e0;
+}
+
+.file-hint {
+    font-size: 0.8rem !important;
+    margin-top: 5px;
+    color: #888 !important;
+}
+
+/* Submit Button */
+.btn-apply {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-apply:hover {
+    background-color: var(--luxury-dark);
+}
+
+/* Success Message Area */
+.hidden { display: none; }
+
+#applySuccessMessage {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 480px) {
+    .form-box {
+        padding: 30px 20px;
+    }
+}
+
+/* ==========================================
+   SUCCESS MESSAGE BUTTON STYLING
+   ========================================== */
+
+#applySuccessMessage .btn-back {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 40px;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#applySuccessMessage .btn-back:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 78, 146, 0.15);
+}
+
+/* Ensure the success text has some breathing room */
+#applySuccessMessage p {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+    color: #555;
+}
+/* Styling for the Textarea to match your inputs */
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Allows users to expand it vertically only */
+}
+
+textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+}
+
+/* Post Success Button Styling */
+.btn-view {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 40px;
+    background-color: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+    background-color: var(--luxury-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
